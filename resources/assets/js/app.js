@@ -43,6 +43,9 @@ const app = new Vue({
     },
 
     methods: {
+        loadReCaptcha() {
+            grecaptcha.render('g-recaptcha');
+        },
         search() {
             this.searching = true;
 

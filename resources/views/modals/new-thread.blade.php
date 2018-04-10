@@ -1,5 +1,5 @@
 @if (auth()->check())
-    <modal name="new-thread" height="auto" transition="slide">
+    <modal name="new-thread" height="auto" transition="slide" @opened="loadReCaptcha">
         <form method="POST" action="/threads" class="p-6 py-8">
             {{ csrf_field() }}
 
@@ -29,7 +29,7 @@
             </div>
 
             <div class="mb-6">
-                <div class="g-recaptcha" data-sitekey="{{ config('services.recaptcha.key') }}"></div>
+                <div id="g-recaptcha" class="g-recaptcha" data-sitekey="{{ config('services.recaptcha.key') }}"></div>
             </div>
 
             <div class="flex justify-end">
